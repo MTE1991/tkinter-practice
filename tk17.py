@@ -16,7 +16,7 @@ image_label = ttk.Label(
     root,
     image=photo,
     text="HELLO, WORLD FROM MT EKLEEL",
-    compound='top'
+    compound='bottom'  # image will be placed in the bottom
 )
 image_label.pack()
 
