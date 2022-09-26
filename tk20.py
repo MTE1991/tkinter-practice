@@ -1,35 +1,39 @@
-# image button
 import tkinter as tk
 from tkinter import ttk
 from tkinter.messagebox import showinfo
 from PIL import Image, ImageTk
 
+
 # root window
 root = tk.Tk()
 root.geometry('300x200')
-root.resizable(True, True)
+root.resizable(False, False)
 root.title('Image Button Demo')
 
 
-# download button callback function
+# download button handler
 def download_clicked():
-    tk.messagebox.showinfo(
-        title="Info",
-        message="File downloaded succesfully!"
+    showinfo(
+        title='Information',
+        message='Download button clicked!'
     )
 
 
-download_icon = ImageTk.PhotoImage(file="download.png")
-download_btn = ttk.Button(
+download_icon = ImageTk.PhotoImage(file='download.png')
+
+download_button = ttk.Button(
     root,
     image=download_icon,
+    text='Download',
+    compound=tk.LEFT,
     command=download_clicked
 )
 
-download_btn.pack(
+download_button.pack(
     ipadx=5,
     ipady=5,
     expand=True
 )
+
 
 root.mainloop()
