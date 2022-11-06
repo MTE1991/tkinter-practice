@@ -1,3 +1,4 @@
+# Text editor pre-alpha xD
 import tkinter as tk
 from tkinter import ttk, Tk, Text
 from tkinter.messagebox import showinfo
