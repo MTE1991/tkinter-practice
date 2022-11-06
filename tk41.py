@@ -6,9 +6,9 @@ from tkinter.scrolledtext import ScrolledText
 root = Tk()
 root.title("Text Editor (pre-alpha)")
 root.geometry("600x450")
-root.resizable(True, False)
-
-root.columnconfigure(2, weight=1) # Using grid geometry manager
+root.resizable(True, True)
+root.rowconfigure(3, weight=1)
+root.columnconfigure(2, weight=1)
 
 # name entry
 nameLabel = ttk.Label(root, text="File name:")
@@ -25,9 +25,27 @@ extLabel.grid(column=0, row=1)
 extEntry = ttk.Entry(root)
 extEntry.grid(column=1, row=1)
 
-text = ScrolledText(root, width=65, height=20)
-text.grid(column=0, row=2, sticky=tk.EW, padx=5, pady=5, columnspan=6)
+# fonts
+fonts = {
+    "Calibri",
+    "Times New Roman",
+    "Arial",
+    "Lucida Console"
+}
 
+# drop down menu for font selection
+clicked = tk.StringVar()
+clicked.set("Calibri")
+
+dropLbl = ttk.Label(root, text="Font:")
+dropLbl.grid(column=0, row=2, sticky=tk.W)
+
+dropDown = tk.OptionMenu(root, clicked, *fonts)
+dropDown.grid(column=1, row=2, sticky=tk.W)
+
+# Scroll text box
+text = ScrolledText(root, width=65, height=20)
+text.grid(column=0, row=3, sticky=tk.EW, padx=5, pady=5, columnspan=6)
 text.insert('1.0', 'Type something here...\n')
 
 # event handling
@@ -54,20 +72,20 @@ btn1 = ttk.Button(
     text="Enable Edit",
     command=enableText
 )
-btn1.grid(column=3, row=3, sticky=tk.SE)
+btn1.grid(column=2, row=4, sticky=tk.SE)
 
 btn2 = ttk.Button(
     root,
     text="Disable Edit",
     command=disableText
 )
-btn2.grid(column=4, row=3, sticky=tk.SE)
+btn2.grid(column=3, row=4, sticky=tk.SE)
 
 btn3 = ttk.Button(
     root,
     text="Output file",
     command=textOut
 )
-btn3.grid(column=5, row=3, sticky=tk.SE)
+btn3.grid(column=4, row=4, sticky=tk.SE)
 
 root.mainloop()
