@@ -5,8 +5,8 @@ from tkinter.scrolledtext import ScrolledText
 
 root = Tk()
 root.title("Text Editor (pre-alpha)")
-root.geometry("600x400")
-root.resizable(True, True)
+root.geometry("600x450")
+root.resizable(True, False)
 
 root.columnconfigure(2, weight=1) # Using grid geometry manager
 
@@ -25,7 +25,7 @@ extLabel.grid(column=0, row=1)
 extEntry = ttk.Entry(root)
 extEntry.grid(column=1, row=1)
 
-text = ScrolledText(root, width=65, height=10)
+text = ScrolledText(root, width=65, height=20)
 text.grid(column=0, row=2, sticky=tk.EW, padx=5, pady=5, columnspan=6)
 
 text.insert('1.0', 'Type something here...\n')
@@ -65,7 +65,7 @@ btn2.grid(column=4, row=3, sticky=tk.SE)
 
 btn3 = ttk.Button(
     root,
-    text="Output as .txt file",
+    text="Output file",
     command=textOut
 )
 btn3.grid(column=5, row=3, sticky=tk.SE)
